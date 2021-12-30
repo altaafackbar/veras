@@ -22,8 +22,15 @@ export const NavLink = styled(Link)`
     padding: 0 1rem;
     cursor: pointer;
 
+    
+
     &.active{
-        color: #a876de;
+        transition: all 0.2s ease-in-out;
+        color: #fff;
+        background: #7c07fa;
+        border-radius: 5px;
+        width:100%;
+        height: 100%
     }
 `
 export const NavLogo = styled(Link)`

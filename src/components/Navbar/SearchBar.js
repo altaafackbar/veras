@@ -4,14 +4,22 @@ import {IconContext} from "react-icons"
 
 const SearchBar = () => {
     return (
-        <form action="/" method="get">
+        <form action="/" method="get"
+        style={{
+            borderWidth: 1,
+            borderRadius: 5,
+            alignSelf: 'center'
+            
+            
+        }}>
 
         <input
         style={{
             borderWidth: 1,
             borderRadius: 5,
-            width: 200,
+            width: '85%',
             height: 30,
+
             
             
         }}
@@ -22,7 +30,7 @@ const SearchBar = () => {
         />
         
 
-        <IconContext.Provider value={{ style: {fontSize: '30px', color: "rgb(82, 14, 156)", paddingLeft: 5}}}>
+        <IconContext.Provider value={{ style: {fontSize: '30px', color: "rgb(82, 14, 156)", paddingLeft: 5, paddingTop: 10}}}>
 
                 <FiSearch />
 
