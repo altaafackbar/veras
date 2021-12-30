@@ -25,12 +25,13 @@ export const NavLink = styled(Link)`
     
 
     &.active{
-        transition: all 0.2s ease-in-out;
+        transition: all 0.1s ease-in-out;
         color: #fff;
         background: #7c07fa;
-        border-radius: 5px;
+        border-radius: 15px;
         width:100%;
-        height: 100%
+        height: 100%;
+        
     }
 `
 export const NavLogo = styled(Link)`
@@ -61,6 +62,7 @@ export const NavMenu = styled.div`
     display: flex;
     align-items: center;
     margin-right: -24px;
+    padding-right: 3rem;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -93,4 +95,21 @@ export const NavBtnLink = styled(Link)`
         background: #fff;
         color: #010606;
     }
+`
+
+export const Profile = styled.div`
+    box-shadow: none;
+    background-image: url("/images/VQUBE.png");
+    width: 55px;
+    height: 55px;
+    box-sizing: border-box;
+    background-clip: content-box;
+    background-color: white;
+    background-position: center;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
 `

@@ -17,8 +17,11 @@ const SearchBar = () => {
         style={{
             borderWidth: 1,
             borderRadius: 5,
-            width: '85%',
+            width: '95%',
             height: 30,
+            paddingLeft: 20,
+            fontSize: 15
+            
 
             
             
@@ -29,12 +32,13 @@ const SearchBar = () => {
             name="s" 
         />
         
-
+{/*
         <IconContext.Provider value={{ style: {fontSize: '30px', color: "rgb(82, 14, 156)", paddingLeft: 5, paddingTop: 10}}}>
 
                 <FiSearch />
 
         </IconContext.Provider>
+*/}
     </form>
 
     )

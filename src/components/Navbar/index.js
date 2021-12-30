@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo } from './NavbarElements'
+import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo, Profile } from './NavbarElements'
 import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom'
 import * as AiIcons from 'react-icons/ai'
@@ -50,11 +50,7 @@ function Navbar() {
                 </NavLogo>
                 <SearchBar/>
 
-                <div className='navbar'>
-                    <Link to='#' className='menu-bars'>
-                        <Bars onClick={showSidebar}/>
-                    </Link>
-                </div>
+                
                 <nav className={sidebar ? 'nav-active-menu' : 'nav-menu'}>
                     <ul className='nav-menu-items' onClick={showSidebar}>
                         <li className='navbar-toggle'>
@@ -91,9 +87,12 @@ function Navbar() {
                         Settings
                     </NavLink>
                 </NavMenu>
-                <NavBtn>
-                    <NavBtnLink to="/signin">Sign In</NavBtnLink>
-                </NavBtn>
+                <Profile></Profile>
+                <div className='navbar'>
+                    <Link to='#' className='menu-bars'>
+                        <Bars onClick={showSidebar}/>
+                    </Link>
+                </div>
                 
             </Nav>
         </>

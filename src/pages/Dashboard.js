@@ -1,12 +1,41 @@
 import React from 'react'
+import styled from 'styled-components'
+import Leftside from './DashboardSections/Leftside'
+import Main from './DashboardSections/Main'
+import Rightside from './DashboardSections/Rightside'
 
 const Dashboard = () => {
     return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}>
-            <h1>Dashboard</h1>
-            
-        </div>
+        <Container>
+
+
+        <Layout>
+            <Leftside/>
+            <Main/>
+            <Rightside/>
+        </Layout>
+        
+        </Container>
     )
 }
 
+const Container = styled.div`
+    padding-top: 52px;
+    max-width: 100%;
+`
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas: "leftside main rightside";
+  grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
+  column-gap: 30px;
+  row-gap: 20px;
+  margin: 25px 0;
+  padding: 0 10px;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+  }
+`;
 export default Dashboard
