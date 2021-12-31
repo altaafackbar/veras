@@ -52,10 +52,11 @@ export const Bars = styled(FaBars)`
         position: center;
         top: 0;
         right: 0;
-        transform: translate(-100%, 75%);
-        font-size: 1.8rem;
+        transform: translate(-100%, 15%);
+        font-size: 2rem;
         cursor: pointer;
-    }
+        padding-bottom: 10px;
+        margin-left: 5%;
 `
 
 export const NavMenu = styled.div`
@@ -98,10 +99,13 @@ export const NavBtnLink = styled(Link)`
 `
 
 export const Profile = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
     box-shadow: none;
     background-image: url("/images/VQUBE.png");
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     box-sizing: border-box;
     background-clip: content-box;
     background-color: white;

@@ -45,6 +45,7 @@ function Navbar() {
     return (
         <>
             <Nav>
+                <nav className={sidebar ? 'nav-active-cover' : 'nav-cover'}></nav>
                 <NavLogo to="/dashboard">
                     <img src={require('../../assets/images/VQUBE.png')} alt='logo' width="50" height="50" />
                 </NavLogo>
@@ -55,7 +56,7 @@ function Navbar() {
                     <ul className='nav-menu-items' onClick={showSidebar}>
                         <li className='navbar-toggle'>
                             <Link to='#' className='menu-bars'>
-                                <IconContext.Provider value={{ style: {fontSize: '60px', color: "#fff", paddingLeft: 25,}}}>
+                                <IconContext.Provider value={{ style: {fontSize: '60px', color: "#000", paddingLeft: 25,}}}>
                                     <AiIcons.AiOutlineClose/>
                                 </IconContext.Provider>
                             </Link>

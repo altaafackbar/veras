@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Engagement from './pages/Engagement';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {

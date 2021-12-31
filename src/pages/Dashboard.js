@@ -12,7 +12,7 @@ const Dashboard = () => {
         <Layout>
             <Leftside/>
             <Main/>
-            <Rightside/>
+
         </Layout>
         
         </Container>
@@ -20,18 +20,20 @@ const Dashboard = () => {
 }
 
 const Container = styled.div`
-    padding-top: 52px;
+    padding-top: 42px;
+    padding-left: 60px;
+    padding-right: 60px;
     max-width: 100%;
 `
 
 const Layout = styled.div`
   display: grid;
-  grid-template-areas: "leftside main rightside";
-  grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
+  padding: 0.5rem calc((100vw - 1100px)/2);
+  grid-template-areas: "leftside main ";
+  grid-template-columns: minmax(0, 10fr) minmax(0, 20fr) ;
   column-gap: 30px;
   row-gap: 20px;
-  margin: 25px 0;
-  padding: 0 10px;
+  margin: -30px 0;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
