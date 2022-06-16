@@ -15,12 +15,13 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled(Link)`
-    color: #520e9c;
+    color: #7669CD;
     display: flex;
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 
     
 

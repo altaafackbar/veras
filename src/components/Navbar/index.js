@@ -49,7 +49,7 @@ function Navbar() {
                 <NavLogo to="/dashboard">
                     <img src={require('../../assets/images/VQUBE.png')} alt='logo' width="50" height="50" />
                 </NavLogo>
-                <SearchBar/>
+                
 
                 
                 <nav className={sidebar ? 'nav-active-menu' : 'nav-menu'}>

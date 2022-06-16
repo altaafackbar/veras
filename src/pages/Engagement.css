@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+h1,
+p,
+a{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+}
+
+h1 {
+  font-size: 2.8em;
+  padding: 10px 0;
+  font-weight: 800;
+}
+
+p {
+  font-size: 1.1em;
+  font-weight: 100;
+  letter-spacing: 5px;
+}
+
+.electionHeader {
+  width: 100%;
+  padding:60px 0;
+  text-align: center;
+  background: #7669CD;
+  color: white;
+}
+
+.infoHeader {
+    width: 100%;
+    padding:30px 0;
+    text-align: center;
+    background: #ffffff;
+    color: white;
+  }
+
+.btn-bgstroke {
+  font-size: 20px;
+  display: inline-block;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 300;
+  margin-top: 30px; 
+}
+
+.btn-bgstroke:hover {
+  background-color: white;
+  color: #33cccc;
+}
+
+.rectangle {
+    width: 2px;
+    height: 24px;
+    
+    background: linear-gradient(180deg, #301E83 8.33%, #897CE2 64.33%, #60DBB8 116.66%);
+    border-radius: 2px;
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+
+  .type {
+    width: 256px;
+    height: 24px;
+    
+    /* VD1/body/large */
+    
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 5px;
+    /* identical to box height, or 150% */
+    
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    
+    /* VCP/ref/primary/primary30 */
+    
+    color: #453798;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
