@@ -36,6 +36,55 @@ p {
     color: white;
   }
 
+  .contentHeader {
+    width: 100%;
+    padding:30px;
+    padding-left: 35%;
+    text-align: center;
+    background: #F6F7FE;
+    color: white;
+    height:100vh;
+
+  }
+
+  .input{
+    width: 60%;
+
+  }
+
+  .labels{
+    /* Label */
+
+
+width: 504px;
+height: 12px;
+
+/* VD1/label/medium */
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* or 133% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.5px;
+
+/* VCP/ref/secondary/secondary30 */
+
+color: #00513E;
+
+opacity: 0.6;
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+  }
 .btn-bgstroke {
   font-size: 20px;
   display: inline-block;
@@ -95,4 +144,22 @@ p {
     flex: none;
     order: 0;
     flex-grow: 0;
+  }
+
+  @media (max-width: 768px) {
+    .contentHeader {
+      width: 100%;
+      padding:30px;
+      padding-left: 10%;
+      text-align: center;
+      background: #F6F7FE;
+      color: white;
+      height:100vh;
+  
+    }
+  
+    .input{
+      width: 90%;
+  
+    }
   }

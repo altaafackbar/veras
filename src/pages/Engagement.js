@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Candidates from './FormPages/Candidates';
 import FormPersonalInfo from './FormPages/FormPersonalInfo';
 import info from './testInfo.json'
 
@@ -49,6 +50,14 @@ export class Engagement extends Component {
             values={values}
           />
         );
+        case 2:
+          return (
+            <Candidates
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+          );
         default:
             (console.log('This is a multi-step form built with React.'))
     }
