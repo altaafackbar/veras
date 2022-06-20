@@ -51,9 +51,33 @@ p {
     width: 60%;
 
   }
+  .inputField{
+    background-color:#ffffff;
+
+  }
+  .dateInputField{
+    width: 504px;
+    height: 48px;
+
+    background: #ffffff;
+    border-radius: 4px;
+    border-color: #000000;
+    
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+  }
+  
 
   .labels{
     /* Label */
+
+
 
 
 width: 504px;
@@ -95,7 +119,11 @@ flex-grow: 0;
   font-weight: 300;
   margin-top: 30px; 
 }
-
+.navButton{
+  background: rgba(118, 105, 205, 0.1);
+  border: 1px solid rgba(93, 80, 178, 0.1);
+  border-radius: 4px;
+}
 .btn-bgstroke:hover {
   background-color: white;
   color: #33cccc;
@@ -144,6 +172,22 @@ flex-grow: 0;
     flex: none;
     order: 0;
     flex-grow: 0;
+  }
+
+  .checkboxFont{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.4px;
+
+    color: #5D50B2;
+    padding-top: 4.5%;
   }
 
   @media (max-width: 768px) {
