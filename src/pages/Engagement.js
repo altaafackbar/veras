@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Candidates from './FormPages/Candidates';
 import FormPersonalInfo from './FormPages/FormPersonalInfo';
+import ConfirmCandidates from './FormPages/ConfirmCandidates';
 import info from './testInfo.json'
 
 
@@ -12,7 +13,8 @@ export class Engagement extends Component {
     isrn: '',
     dob: '',
     election: info.electionTitle,
-    candidates: info.candidates
+    candidates: info.candidates,
+    chosenCandidates: []
   };
 
   // Proceed to next step
@@ -36,10 +38,14 @@ export class Engagement extends Component {
     this.setState({ [input]: e.target.value });
   };
 
+  handleListChange = (newValue) => {
+    this.setState({ value: newValue });
+  }
+
   render() {
     const { step } = this.state;
-    const { isrn, dob, election, candidates } = this.state;
-    const values = { isrn, dob, election, candidates};
+    const { isrn, dob, election, candidates, chosenCandidates } = this.state;
+    const values = { isrn, dob, election, candidates, chosenCandidates};
 
     switch (step) {
       case 1:
@@ -51,13 +57,23 @@ export class Engagement extends Component {
           />
         );
         case 2:
+          console.log(this.state)
           return (
             <Candidates
               nextStep={this.nextStep}
-              handleChange={this.handleChange}
+              handleChange={this.handleListChange}
               values={values}
             />
           );
+          case 3:
+            console.log(this.state.value)
+            return (
+              <ConfirmCandidates
+                nextStep={this.nextStep}
+                handleChange={this.handleChange}
+                values={this.state.value}
+              />
+            );
         default:
             (console.log('This is a multi-step form built with React.'))
     }

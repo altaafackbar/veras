@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component } from 'react'
 
 import './FormPages.css'
 
@@ -18,13 +18,8 @@ import Button from '@material-ui/core/Button';
 import { IconContext } from 'react-icons'
 import * as AiIcons from 'react-icons/ai'
 
-export default function Candidates(props) {
+export default function ConfirmCandidates(props) {
   const [checked, setChecked] = React.useState([]);
-  const [myValues, setMyValues] = useState(props);
-
-  useEffect(() => {
-    setMyValues(props);
-  }, [props]);
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
@@ -38,25 +33,16 @@ export default function Candidates(props) {
 
     setChecked(newChecked);
   }
+    console.log(props)
     const candidates = props.values.candidates;
 
     const next = (e) => () => {
-
-      props.values.chosenCandidates = checked;
-      console.log(myValues)
-      console.log(props)
-      props.handleChange(props)
-
-      if(props.values.dob == ''){
-        
-        
-      }
-      props.nextStep();
+     
     };
     return (
         <div style={{flexDirection: 'flex-column', justifyContent: 'center', alignItems: 'center'}}>
         <section class="electionHeader">
-            <h1>Choose Your Candidates</h1>
+            <h1>Confirm Your Candidates</h1>
         </section>
         
         <section class="infoHeader">
@@ -72,7 +58,7 @@ export default function Candidates(props) {
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start'}}>
 
               <List dense sx={{ width: '100%', maxWidth: 740, bgcolor: '#F6F7FE' }}>
-                    {candidates.map((value) => {
+                    {props.values.values.chosenCandidates.map((value) => {
                       const labelId = `checkbox-list-secondary-label-${value}`;
                       return (
                         <div>
@@ -91,9 +77,9 @@ export default function Candidates(props) {
                           }
                           disablePadding
                         >
-                          <ListItemButton>
+                        
                             <ListItemText id={labelId} disableTypography className='listItemText' primary={<Typography type="body2" style={{ fontFamily: 'Poppins', fontWeight: 600, fontSize: 17 }}>{value}</Typography>} />
-                          </ListItemButton>
+                          
                         </ListItem>
                         <Divider style={{width:'100%'}} />
                         </div>

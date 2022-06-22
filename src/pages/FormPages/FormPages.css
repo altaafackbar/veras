@@ -31,6 +31,7 @@ p {
 .infoHeader {
     width: 100%;
     padding:30px 0;
+    
     text-align: center;
     background: #ffffff;
     color: white;
@@ -144,6 +145,19 @@ flex-grow: 0;
     flex-grow: 0;
   }
 
+.dot{
+
+  width: 6px;
+  height: 6px;
+  left: 0px;
+  top: 9px;
+
+  /* VCP/ref/primary/primary30 */
+
+  background: #453798;
+  border-radius: 2px;
+}
+
   .type {
     width: 256px;
     height: 24px;
@@ -190,6 +204,26 @@ flex-grow: 0;
     padding-top: 4.5%;
   }
 
+  .listItemText{
+    width: 85px;
+    height: 20px;
+
+    /* VD1/label/large */
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1px;
+
+    color: rgba(93, 80, 178, 0.8);
+
+  }
   @media (max-width: 768px) {
     .contentHeader {
       width: 100%;
