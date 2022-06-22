@@ -18,6 +18,9 @@ export class FormPersonalInfo extends Component {
   continue = e => {
     console.log(this.props)
     e.preventDefault();
+    if(this.props.values.dob == ''){
+      
+    }
     this.props.nextStep();
   };
 
@@ -49,7 +52,7 @@ export class FormPersonalInfo extends Component {
       </section>
       
       <section class="infoHeader">
-          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start'}}>
               <div className="rectangle"/>
               <p className='type'>Type in Your Information to Vote</p>
               
@@ -65,10 +68,12 @@ export class FormPersonalInfo extends Component {
                   
                   <TextField
                     placeholder="ISRN"
-                    onChange={handleChange('email')}
+                    onChange={handleChange('isrn')}
                     defaultValue={values.email}
                     margin="normal"
                     fullWidth
+                    type= "number"
+                    required
                     id="outlined-basic"
                     variant="outlined"
                     className='inputField'
@@ -81,7 +86,7 @@ export class FormPersonalInfo extends Component {
               <TextField
                 placeholder="ISRN"
                 type='date'
-                onChange={handleChange('email')}
+                onChange={handleChange('dob')}
                 defaultValue={values.email}
                 margin="normal"
                 fullWidth
