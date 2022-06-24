@@ -12,21 +12,55 @@ import { IconContext } from 'react-icons'
 import * as AiIcons from 'react-icons/ai'
 import { createTheme } from '@mui/material/styles';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class FormPersonalInfo extends Component {
 
+  state = {
+    isrnValid: true,
+    dobValid: true,
+    captchaValid: true, 
+    test: 0,
+  };
+  notify = (message) => {
+    toast.error(message,
+    {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  };
   continue = e => {
-    console.log(this.props)
+    console.log(this.state)
     e.preventDefault();
-    if(this.props.values.dob == ''){
-      
+    this.setState({test: 1})
+    if(this.props.values.isrn == ''){
+      console.log("EMPTY")
+      this.setState({isrnValid : false})
+      this.notify("Please fill out the ISRN field!")
+
     }
-    this.props.nextStep();
+    if(this.props.values.dob == ''){
+      console.log("EMPTY")
+      this.setState({dobValid : false})
+      this.notify("Please fill out the DOB field!")
+    }
+    this.forceUpdate();
+    //this.props.nextStep();
   };
 
   onChange = value => {
     console.log('Captcha value:', value);
   }
+
+ handleValidation(value) {
+    console.log(value)
+  };
 
   render() {
     const theme = createTheme({
@@ -73,10 +107,10 @@ export class FormPersonalInfo extends Component {
                     margin="normal"
                     fullWidth
                     type= "number"
-                    required
                     id="outlined-basic"
                     variant="outlined"
                     className='inputField'
+                    
                     
                   />
               </div>
@@ -87,7 +121,6 @@ export class FormPersonalInfo extends Component {
                 placeholder="ISRN"
                 type='date'
                 onChange={handleChange('dob')}
-                defaultValue={values.email}
                 margin="normal"
                 fullWidth
                 id="outlined-basic"
@@ -133,10 +166,19 @@ export class FormPersonalInfo extends Component {
 
           
       </section>
-      
+      <ToastContainer 
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
   </div>
     )
   }
 }
 
-export default FormPersonalInfo
+export default FormPersonalInfo;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Candidates from './FormPages/Candidates';
 import FormPersonalInfo from './FormPages/FormPersonalInfo';
 import ConfirmCandidates from './FormPages/ConfirmCandidates';
+import Submitted from './FormPages/Submitted';
 import info from './testInfo.json'
 
 
@@ -70,10 +71,20 @@ export class Engagement extends Component {
             return (
               <ConfirmCandidates
                 nextStep={this.nextStep}
+                prevStep={this.prevStep}
                 handleChange={this.handleChange}
                 values={this.state.value}
               />
             );
+            case 4:
+              return (
+                <Submitted
+                  nextStep={this.nextStep}
+                  prevStep={this.prevStep}
+                  handleChange={this.handleChange}
+                  values={this.state.value}
+                />
+              );
         default:
             (console.log('This is a multi-step form built with React.'))
     }

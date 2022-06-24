@@ -114,7 +114,7 @@ export default function Candidates(props) {
           onClick={next()}
           fullWidth
           className='navButton'
-        >Continue 
+        >Confirm 
           <IconContext.Provider value={{ style: {fontSize: '25', color: '#520e9c'}}}>
               <AiIcons.AiOutlineArrowRight/>
           </IconContext.Provider>

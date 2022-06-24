@@ -47,6 +47,32 @@ p {
     height:100vh;
 
   }
+  .resultBox {
+    width: 60%;
+    padding:30px;
+    padding-left: 35%;
+    text-align: center;
+    background: #F6F7FE;
+    color: white;
+    height:100vh;
+
+  }
+  .resultText{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    
+    /* VCP/ref/secondary/secondary40 */
+    
+    color: #006B53;
+  }
 
   .input{
     width: 60%;
