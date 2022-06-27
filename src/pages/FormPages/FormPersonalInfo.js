@@ -18,9 +18,9 @@ import 'react-toastify/dist/ReactToastify.css';
 export class FormPersonalInfo extends Component {
 
   state = {
-    isrnValid: true,
-    dobValid: true,
-    captchaValid: true, 
+    isrnValid: null,
+    dobValid: null,
+    captchaValid: null, 
     test: 0,
   };
   notify = (message) => {
@@ -39,19 +39,30 @@ export class FormPersonalInfo extends Component {
     console.log(this.state)
     e.preventDefault();
     this.setState({test: 1})
-    if(this.props.values.isrn == ''){
-      console.log("EMPTY")
-      this.setState({isrnValid : false})
-      this.notify("Please fill out the ISRN field!")
+    if(this.props.values.isrn == '' || this.props.values.dob == ''){
+      if(this.props.values.isrn == ''){
+        console.log("EMPTY")
+        this.setState({isrnValid : false})
+        this.notify("Please fill out the ISRN field!")
+  
+      }
+      else{
+        this.setState({isrnValid : true})
+      }
+      if(this.props.values.dob == ''){
+        console.log("EMPTY")
+        this.setState({dobValid : false})
+        this.notify("Please fill out the DOB field!")
+      }
+      else{
+        this.setState({dobValid : true})
+      }
+    }
+    else if(this.props.values.isrn != '' && this.props.values.dob != ''){
 
+      this.props.nextStep();
     }
-    if(this.props.values.dob == ''){
-      console.log("EMPTY")
-      this.setState({dobValid : false})
-      this.notify("Please fill out the DOB field!")
-    }
-    this.forceUpdate();
-    //this.props.nextStep();
+    
   };
 
   onChange = value => {
