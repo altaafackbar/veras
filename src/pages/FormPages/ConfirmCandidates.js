@@ -60,17 +60,16 @@ export default function ConfirmCandidates(props) {
         </section>
         
         <section class="infoHeader">
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center',alignItems: 'baseline'}}>
                 <div className="dot"/>
-                <p className='type'>Select up to 3 candidates</p>
+                <p className='type'>These are your Chosen Candidates</p>
 
             </div>
             
         </section>
         <section class="contentHeader">
   
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start'}}>
-
+        <div class="listStyle">
               <List dense sx={{ width: '100%', maxWidth: 740, bgcolor: '#F6F7FE' }}>
                     {props.values.values.chosenCandidates.map((value) => {
                       const labelId = `checkbox-list-secondary-label-${value}`;
@@ -95,7 +94,7 @@ export default function ConfirmCandidates(props) {
                             <ListItemText id={labelId} disableTypography className='listItemText' primary={<Typography type="body2" style={{ fontFamily: 'Poppins', fontWeight: 600, fontSize: 17 }}>{value}</Typography>} />
                           
                         </ListItem>
-                        <Divider style={{width:'100%'}} />
+                        <Divider style={{width:'100%', paddingTop: 5, paddingBottom: 5}} />
                         </div>
 
                         

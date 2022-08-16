@@ -14,6 +14,7 @@ import { createTheme } from '@mui/material/styles';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from '@material-ui/core';
 
 export class FormPersonalInfo extends Component {
 
@@ -21,6 +22,7 @@ export class FormPersonalInfo extends Component {
     isrnValid: null,
     dobValid: null,
     captchaValid: null, 
+    checked: false,
     test: 0,
   };
   notify = (message) => {
@@ -39,8 +41,8 @@ export class FormPersonalInfo extends Component {
     console.log(this.state)
     e.preventDefault();
     this.setState({test: 1})
-    if(this.props.values.isrn == '' || this.props.values.dob == ''){
-      if(this.props.values.isrn == ''){
+    if(this.props.values.isrn === '' || this.props.values.dob === '' || this.state.checked === false){
+      if(this.props.values.isrn === ''){
         console.log("EMPTY")
         this.setState({isrnValid : false})
         this.notify("Please fill out the ISRN field!")
@@ -49,7 +51,7 @@ export class FormPersonalInfo extends Component {
       else{
         this.setState({isrnValid : true})
       }
-      if(this.props.values.dob == ''){
+      if(this.props.values.dob === ''){
         console.log("EMPTY")
         this.setState({dobValid : false})
         this.notify("Please fill out the DOB field!")
@@ -57,8 +59,12 @@ export class FormPersonalInfo extends Component {
       else{
         this.setState({dobValid : true})
       }
+      if(this.state.checked === false){
+        this.notify("Please agree to our policies!")
+      }
     }
-    else if(this.props.values.isrn != '' && this.props.values.dob != ''){
+    else if(this.props.values.isrn !== '' && this.props.values.dob !== '' && this.state.checked === true){
+
 
       this.props.nextStep();
     }
@@ -67,6 +73,11 @@ export class FormPersonalInfo extends Component {
 
   onChange = value => {
     console.log('Captcha value:', value);
+  }
+
+  onCheck = value => {
+    this.state.checked = !this.state.checked;
+    console.log(this.state.checked);
   }
 
  handleValidation(value) {
@@ -80,12 +91,12 @@ export class FormPersonalInfo extends Component {
       },
       palette: {
         primary: {
-          main: '#0971f1',
-          darker: '#053e85',
+          main: '#7669cd',
+          darker: '#7669cd',
         },
         veras: {
-          main: '#766cce',
-          darker: '#5b51ad',
+          main: '#ffff',
+          darker: '#ffff',
         },
       },
     });
@@ -143,8 +154,7 @@ export class FormPersonalInfo extends Component {
               <br />
               <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                 <Checkbox
-                  
-                  defaultChecked
+                  onChange={this.onCheck}
                   sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
                 />
                 <p className='checkboxFont'>I have read and accepted our policies</p>
@@ -159,17 +169,22 @@ export class FormPersonalInfo extends Component {
               </div>
               <br />
               <div class="input">
-              <Button
-                color="primary"
-                variant="contained"
-                onClick={this.continue}
-                fullWidth
-                className='navButton'
-              >Continue 
-                <IconContext.Provider value={{ style: {fontSize: '25', color: '#520e9c'}}}>
-                    <AiIcons.AiOutlineArrowRight/>
-                </IconContext.Provider>
-              </Button>
+                <ThemeProvider theme={theme}>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    onClick={this.continue}
+                    fullWidth
+                    className='navButton'
+                    
+                  >Continue 
+                    <IconContext.Provider value={{ style: {fontSize: '25', color: '#520e9c'}}}>
+                        <AiIcons.AiOutlineArrowRight/>
+                    </IconContext.Provider>
+                  </Button>
+
+                </ThemeProvider>
+
                 </div>
 
           </div>

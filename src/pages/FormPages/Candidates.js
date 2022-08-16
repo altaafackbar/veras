@@ -17,10 +17,13 @@ import Divider from '@mui/material/Divider';
 import Button from '@material-ui/core/Button';
 import { IconContext } from 'react-icons'
 import * as AiIcons from 'react-icons/ai'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Candidates(props) {
   const [checked, setChecked] = React.useState([]);
   const [myValues, setMyValues] = useState(props);
+
 
   useEffect(() => {
     setMyValues(props);
@@ -38,20 +41,35 @@ export default function Candidates(props) {
 
     setChecked(newChecked);
   }
+
+  const notify = (message) => {
+    toast.error(message,
+    {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  };
     const candidates = props.values.candidates;
 
     const next = (e) => () => {
 
       props.values.chosenCandidates = checked;
       console.log(myValues)
-      console.log(props)
+      console.log(props.values.chosenCandidates)
       props.handleChange(props)
-
-      if(props.values.dob == ''){
-        
+      if(props.values.chosenCandidates.length === 0){
+        notify("Please select candidates!")
         
       }
-      props.nextStep();
+      else{
+        props.nextStep();
+      }
+      
     };
     return (
         <div style={{flexDirection: 'flex-column', justifyContent: 'center', alignItems: 'center'}}>
@@ -60,7 +78,7 @@ export default function Candidates(props) {
         </section>
         
         <section class="infoHeader">
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center',alignItems: 'baseline', alignContent: 'center'}}>
                 <div className="dot"/>
                 <p className='type'>Select up to 3 candidates</p>
 
@@ -69,9 +87,9 @@ export default function Candidates(props) {
         </section>
         <section class="contentHeader">
   
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start'}}>
+            <div class="listStyle">
 
-              <List dense sx={{ width: '100%', maxWidth: 740, bgcolor: '#F6F7FE' }}>
+              <List dense sx={{ width: '100%', bgcolor: '#F6F7FE' }}>
                     {candidates.map((value) => {
                       const labelId = `checkbox-list-secondary-label-${value}`;
                       return (
@@ -95,7 +113,7 @@ export default function Candidates(props) {
                             <ListItemText id={labelId} disableTypography className='listItemText' primary={<Typography type="body2" style={{ fontFamily: 'Poppins', fontWeight: 600, fontSize: 17 }}>{value}</Typography>} />
                           </ListItemButton>
                         </ListItem>
-                        <Divider style={{width:'100%'}} />
+                        <Divider style={{width:'100%', paddingTop: 5, paddingBottom: 5}} />
                         </div>
 
                         
@@ -122,7 +140,16 @@ export default function Candidates(props) {
           </div>
         </section>
 
-        
+        <ToastContainer 
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
     </div>
     )
   }

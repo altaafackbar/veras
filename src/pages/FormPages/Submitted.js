@@ -55,11 +55,12 @@ export default function Submitted(props) {
     return (
         <div style={{flexDirection: 'flex-column', justifyContent: 'center', alignItems: 'center'}}>
             <section class="electionHeader">
-                <h1>Confirm Your Candidates</h1>
+                <h1>Your Vote
+Has Been Submitted</h1>
             </section>
             
             <section class="infoHeader">
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'baseline'}}>
                     <div className="dot"/>
                     <p className='type'>Thank You for Voting with Veras!</p>
 
@@ -67,7 +68,7 @@ export default function Submitted(props) {
                 
             </section>
         <section class="contentHeader">
-  
+   
 
             <ArtCard className='input'>
                 <Header>
@@ -78,7 +79,7 @@ export default function Submitted(props) {
                     </a>
                 </Header>
                 <Result>
-                    <List dense sx={{ width: '100%', maxWidth: 740, bgcolor: '#F6F7FE' }}>
+                    <List dense sx={{ width: '100%', maxWidth: 740, bgcolor: '#FCFCFF' }}>
                     {props.values.values.chosenCandidates.map((value) => {
                       const labelId = `checkbox-list-secondary-label-${value}`;
                       return (
@@ -92,7 +93,7 @@ export default function Submitted(props) {
                             <ListItemText id={labelId} disableTypography className='listItemText' primary={<Typography type="body2" style={{ fontFamily: 'Poppins', fontWeight: 600, fontSize: 17, padding: 15 }}>{value}</Typography>} />
                           
                         </ListItem>
-                        <Divider style={{width:'100%'}} />
+                        <Divider style={{width:'100%', paddingTop: 5, paddingBottom: 5}} />
                         </div>
 
                         
@@ -112,14 +113,11 @@ export default function Submitted(props) {
         <div class="input">
             <Button
                 color="primary"
-                variant="contained"
+                variant="outlined"
                 onClick={next()}
                 fullWidth
                 className='navButton'
-                >Submit Vote 
-                <IconContext.Provider value={{ style: {fontSize: '25', color: '#520e9c'}}}>
-                    <AiIcons.AiOutlineArrowRight/>
-                </IconContext.Provider>
+                >Go to Home Page
             </Button>
           </div>
 
@@ -170,7 +168,7 @@ const ArtCard = styled.div`
     text-align: center;
     overflow: hidden;
     margin-bottom: 10px;
-    background-color: #F6F7FE;
+    background-color: #FCFCFF;
     border-radius: 9px;
     transition: box-shadow 70ms;
     position: relative;
