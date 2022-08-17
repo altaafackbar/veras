@@ -15,6 +15,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from '@material-ui/core';
+import axios from 'axios';
 
 export class FormPersonalInfo extends Component {
 
@@ -65,8 +66,12 @@ export class FormPersonalInfo extends Component {
     }
     else if(this.props.values.isrn !== '' && this.props.values.dob !== '' && this.state.checked === true){
 
-
-      this.props.nextStep();
+      axios.post(`https://jsonplaceholder.typicode.com/users`,  this.props.values )
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      //this.props.nextStep();
     }
     
   };
