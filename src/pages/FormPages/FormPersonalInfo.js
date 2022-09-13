@@ -39,7 +39,7 @@ export class FormPersonalInfo extends Component {
     })
   };
   continue = e => {
-    console.log(this.state)
+    console.log(this.props)
     e.preventDefault();
     this.setState({test: 1})
     if(this.props.values.isrn === '' || this.props.values.dob === '' || this.state.checked === false){
@@ -66,12 +66,18 @@ export class FormPersonalInfo extends Component {
     }
     else if(this.props.values.isrn !== '' && this.props.values.dob !== '' && this.state.checked === true){
 
-      axios.post(`https://jsonplaceholder.typicode.com/users`,  this.props.values )
+      axios.post(`link here`, 
+        {
+          "Birth_date": this.props.values.dob,
+          "ID_number": this.props.values.isrn,
+          "Our_policies": true,
+          "Not_robot": true
+        })
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
-      //this.props.nextStep();
+      this.props.nextStep();
     }
     
   };
